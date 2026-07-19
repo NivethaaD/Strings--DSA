@@ -1,0 +1,19 @@
+1. Largest Odd Number in String
+
+class Solution:
+    def largestOddNumber(self, num: str) -> str:
+        maxi = 0
+        n = len(num)
+        val = 0
+
+        for i in range(0,n):
+            number = int(num[i])
+            if number % 2 != 0:
+                temp = num[:i+1]
+                if len(temp) > maxi:
+                    val = temp
+                    maxi = len(temp)
+
+        if maxi == 0:
+            return ""
+        return val
