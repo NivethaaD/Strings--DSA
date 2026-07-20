@@ -17,3 +17,25 @@ class Solution:
         if maxi == 0:
             return ""
         return val
+
+2. Longest Common Prefix
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        small = ""
+        minLen = float('inf')
+        ans = ""
+
+        for ele in strs:
+            if len(ele) < minLen:
+                minLen = len(ele)
+                small = ele
+        
+        for i in range(0,len(small)):
+            for j in range(0,len(strs)):
+                if small[i]!=strs[j][i]:
+                    return ans
+                
+            ans = ans + small[i]
+        return ans
+        
