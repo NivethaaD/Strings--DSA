@@ -39,3 +39,24 @@ class Solution:
             ans = ans + small[i]
         return ans
         
+3. Isomorphic Strings
+
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        map1 = {}
+        n = len(s)
+
+        for i in range(0,n):
+            if s[i] not in map1:
+                if t[i] in map1.values():
+                    return False
+                else:
+                    map1[s[i]] = t[i]
+        
+            else:
+                if map1[s[i]] != t[i]:
+                    return False
+        
+        return True
+
+        
