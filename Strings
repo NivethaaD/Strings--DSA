@@ -65,3 +65,58 @@ class Solution:
 class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
         return len(s)==len(goal) and goal in s+s
+
+5. Valid Anagram
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        map1 = {}
+        map2 = {}
+
+        if len(s)!=len(t):
+            return False
+
+        for ele in s:
+            if ele not in map1:
+                map1[ele] = 1
+            else:
+                map1[ele] = map1[ele]+1
+        
+        for ele in t:
+            if ele not in map2:
+                map2[ele] = 1
+            else:
+                map2[ele] = map2[ele]+1
+
+        for item in map1:
+            if item not in map2:
+                return False
+
+            if map1[item] != map2[item]:
+                return False
+        
+        return True
+
+6. Sort Characters By Frequency
+
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        map1 = {}
+
+        for ele in s:
+            if ele not in map1:
+                map1[ele] = 1
+            else:
+                map1[ele] = map1[ele]+1
+
+        
+        map1 = dict(sorted(map1.items(), key=lambda x: x[1], reverse=True))
+
+        ans = ""
+
+        for item in map1:
+            ans = ans + (item*map1[item])
+
+        return ans
+
+
