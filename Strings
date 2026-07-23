@@ -120,3 +120,27 @@ class Solution:
         return ans
 
 
+7. Reverse Words in a String
+
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        word = ""
+        ans = []
+        res = ""
+
+        for char in s:
+            if char != " ":
+                word = word + char
+            else:
+                if word:
+                    ans.append(word)
+                    word=""
+
+        if word:
+            ans.append(word)
+
+        ans = ans[::-1]
+        for ele in ans:
+            res = res+ele+" "
+        res = res[:-1]
+        return res
